@@ -1,13 +1,9 @@
 #!/usr/bin/env bash
-
-# Check if an IP address was passed as an argument
-if [ -z "$1" ]; then
+#retrieve the ip_address from args so it's gonna be the argument 1 and then we check if it is null we print error msg otherwise ping the ip_address 5 times
+ipaddress=$1
+if [ -z "$ipaddress" ]
+then
     echo "Usage: 5-is_the_host_on_the_network {IP_ADDRESS}"
-    exit 1
+else
+    ping -c 5 "$ipaddress"
 fi
-
-# Store the IP address from the argument
-IP_ADDRESS=$1
-
-# Ping the provided IP address 5 times
-ping -c 5 "$IP_ADDRESS"
